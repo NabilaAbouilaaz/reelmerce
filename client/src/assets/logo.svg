@@ -1,0 +1,19 @@
+<svg width="205" height="40" viewBox="0 0 205 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="20" cy="20" r="20" fill="url(#paint_ring)"/>
+<circle cx="20" cy="20" r="20" fill="url(#paint_ring)" fill-opacity="0.001"/>
+<circle cx="20" cy="6.5" r="3" fill="#ffffff" fill-opacity="0.9"/>
+<circle cx="31.8" cy="12.7" r="3" fill="#ffffff" fill-opacity="0.9"/>
+<circle cx="31.8" cy="27.3" r="3" fill="#ffffff" fill-opacity="0.9"/>
+<circle cx="20" cy="33.5" r="3" fill="#ffffff" fill-opacity="0.9"/>
+<circle cx="8.2" cy="27.3" r="3" fill="#ffffff" fill-opacity="0.9"/>
+<circle cx="8.2" cy="12.7" r="3" fill="#ffffff" fill-opacity="0.9"/>
+<circle cx="20" cy="20" r="12" fill="#ffffff"/>
+<path d="M17 14.5L26 20L17 25.5V14.5Z" fill="#16A34A"/>
+<text x="47" y="28" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff">Reelmerce</text>
+<defs>
+<linearGradient id="paint_ring" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4ADE80"/>
+<stop offset="1" stop-color="#15803D"/>
+</linearGradient>
+</defs>
+</svg>
