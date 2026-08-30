@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import type { Project } from "../types";
-import { dummyGenerations } from "../assets/assets";
 import { ImageIcon, Loader2Icon, RefreshCwIcon, SparkleIcon, VideoIcon } from "lucide-react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { GhostButton, PrimaryButton } from "../components/Buttons";
@@ -93,7 +92,7 @@ useEffect(()=>{
       <div className={`${project?.aspectRatio === '9:16' ? 'aspect-9/16' : 'aspect-video'} sm:max-h-200 rounded-xl bg-gray-900 overflow-hidden relative`}>
         {project?.generatedVideo ? (
           <video src={project.generatedVideo} controls autoPlay loop
-          className="w-full h-full object-cover"/>
+          className="w-full h-full object-contain"/>
         ) : (
           <img src={project.generatedImage} alt="Generated Result"
           className="w-full h-full object-cover"/>

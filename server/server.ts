@@ -35,6 +35,11 @@ app.use('/api/project', projectRouter);
 // The error handler must be registered before any other error middleware and after all controllers
 Sentry.setupExpressErrorHandler(app);
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });
+
+// Video generation chains several fal.ai model calls and can run for many
+// minutes; don't let Node abort the request mid-flight.
+server.requestTimeout = 0;
+server.headersTimeout = 0;

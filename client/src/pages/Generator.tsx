@@ -1,4 +1,4 @@
-import { Loader2Icon, RectangleHorizontalIcon, RectangleVerticalIcon, Upload, Wand2Icon } from "lucide-react";
+import { Loader2Icon, RectangleHorizontalIcon, RectangleVerticalIcon, Wand2Icon } from "lucide-react";
 import Title from "../components/Title";
 import UploadZone from "../components/UploadZone";
 import { useState } from "react";
