@@ -1,3 +1,9 @@
 # Claude Code local config/skills - not part of the app
 .claude/
 **/.claude/
+
+# Documents de rapport / sorties Claude - pas du code applicatif
+Claude outputs/
+
+# Lockfile racine vide (genere par erreur)
+/package-lock.json

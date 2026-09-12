@@ -21,7 +21,5 @@ services:
         sync: false
       - key: CLOUDINARY_URL
         sync: false
-      - key: GOOGLE_CLOUD_API_KEY
-        sync: false
       - key: FAL_KEY
         sync: false

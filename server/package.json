@@ -16,7 +16,6 @@
   "dependencies": {
     "@clerk/express": "^2.1.61",
     "@fal-ai/client": "^1.10.1",
-    "@google/genai": "^2.18.0",
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
     "@sentry/node": "^10.70.0",
