@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { verifyWebhook } from '@clerk/express/webhooks';
 import { prisma } from '../configs/prisma.js';
 import * as Sentry from "@sentry/node";
+import { ensureUser } from '../configs/ensureUser.js';
 
 
 
@@ -14,8 +15,11 @@ const clerkWebhooks = async (req: Request, res: Response) =>{
     // Switch Cases for differernt Events
     switch (type) {
         case "user.created": {
-            await prisma.user.create({
-                data: {
+            // upsert: the user may already exist if ensureUser() created it first
+            await prisma.user.upsert({
+                where: { id: data.id },
+                update: {},
+                create: {
                     id: data.id,
                     email: data?.email_addresses[0]?.email_address,
                     name: data?.first_name + " " + data?.last_name,
@@ -53,6 +57,7 @@ case "paymentAttempt.updated": {
 
         console.log(planId)
 
+        await ensureUser(clerkUserId)
         await prisma.user.update({
             where: {id: clerkUserId},
             data: {

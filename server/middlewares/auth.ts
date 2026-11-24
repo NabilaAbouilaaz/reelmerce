@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import * as Sentry from "@sentry/node";
+import { ensureUser } from '../configs/ensureUser.js';
 
 
 export const protect = async (req: Request, res: Response, next: NextFunction)=>{
@@ -9,6 +10,7 @@ export const protect = async (req: Request, res: Response, next: NextFunction)=>
         if(!userId) {
             return res.status(401).json({message: 'Unauthorized'})
         }
+        await ensureUser(userId)
         next()
     } catch (error: any) {
         Sentry.captureException(error)
