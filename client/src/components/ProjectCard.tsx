@@ -6,6 +6,7 @@ import { GhostButton, PrimaryButton } from "./Buttons";
 import { useAuth } from "@clerk/clerk-react";
 import toast from "react-hot-toast";
 import api from "../configs/axios";
+import { downloadFile } from "../configs/download";
 
 const ProjectCard = ({ gen, setGenerations, forCommunity = false }: { gen: Project; setGenerations: React.Dispatch<React.SetStateAction<Project[]>>; forCommunity?: boolean; }) => {
    
@@ -83,13 +84,13 @@ const togglePublish = async (projectId: string)=>{
     </div>
     <div className="flex flex-col items-end w-32 text-sm">
       <ul className={`text-xs ${menuOpen ? 'block' : 'hidden'} verflow-hidden right-0 peer-focus:block hover:block w-40 bg-black/50 backdrop-blur text-white border border-gray-500/50 rounded-lg shadow-md mt-2 py-1 z-10`}>
-{gen.generatedImage && <a href="#" download
-className="flex gap-2 items-center px-4 py-2 hover:bg-black/10 cursor-pointer" >
- <ImageIcon size={14} /> Download Image</a>}
- {gen.generatedVideo && <a href="#" download
-className="flex gap-2 items-center px-4 py-2 hover:bg-black/10 cursor-pointer" >
+{gen.generatedImage && <button onClick={() => downloadFile(gen.generatedImage, `${gen.productName || 'reelmerce'}-image`)}
+className="w-full flex gap-2 items-center px-4 py-2 hover:bg-black/10 cursor-pointer" >
+ <ImageIcon size={14} /> Download Image</button>}
+ {gen.generatedVideo && <button onClick={() => downloadFile(gen.generatedVideo, `${gen.productName || 'reelmerce'}-video`)}
+className="w-full flex gap-2 items-center px-4 py-2 hover:bg-black/10 cursor-pointer" >
  <PlaySquareIcon size={14} /> Download Video
- </a>}
+ </button>}
 
 {(gen.generatedVideo || gen.generatedImage) &&
  <button

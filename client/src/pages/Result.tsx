@@ -6,6 +6,7 @@ import { GhostButton, PrimaryButton } from "../components/Buttons";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import api from "../configs/axios";
 import toast from "react-hot-toast";
+import { downloadFile } from "../configs/download";
 
 const Result = () => {
 
@@ -106,20 +107,18 @@ useEffect(()=>{
   <div className="glass-panel p-6 rounded-2xl">
     <h3 className="text-xl font-semibold mb-4">Actions</h3>
     <div className="flex flex-col gap-3">
-      <a href={project.generatedImage} download>
-        <GhostButton disabled={!project.generatedImage}
+      <GhostButton disabled={!project.generatedImage}
+        onClick={() => downloadFile(project.generatedImage, `${project.productName || 'reelmerce'}-image`)}
         className="w-full justify-center rounded-md py-3 disabled:opacity-50 disabled:cursor-not-allowed">
           <ImageIcon className="size-4.5"/>
           Download Image
-        </GhostButton>
-      </a>
-<a href={project.generatedVideo} download>
+      </GhostButton>
   <GhostButton disabled={!project.generatedVideo}
+  onClick={() => downloadFile(project.generatedVideo, `${project.productName || 'reelmerce'}-video`)}
   className="w-full justify-center rounded-md py-3 disabled:opacity-50 disabled:cursor-not-allowed">
     <VideoIcon className="size-4.5"/>
     Download Video
   </GhostButton>
-</a>
 </div>
 </div>
 {/* generate video button  */}
